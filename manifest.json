@@ -1,0 +1,53 @@
+{
+   "action": {
+      "default_title": "Open Claude"
+   },
+   "background": {
+      "service_worker": "background.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "js": [ "content_script.js" ],
+      "matches": [ "https://claude.ai/*" ],
+      "run_at": "document_end"
+   } ],
+   "declarative_net_request": {
+      "rule_resources": [ {
+         "enabled": true,
+         "id": "ruleset_1",
+         "path": "rules.json"
+      } ]
+   },
+   "description": "AIPRM is your cheat code for Claude. Adds a list of curated prompt templates and advanced features. Try today.",
+   "externally_connectable": {
+      "matches": [ "https://*.aiprm.com:*/*" ]
+   },
+   "host_permissions": [ "https://claude.ai/*" ],
+   "icons": {
+      "1024": "icons/1024.png",
+      "128": "icons/128.png",
+      "16": "icons/16.png",
+      "256": "icons/256.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "512": "icons/512.png",
+      "64": "icons/64.png",
+      "72": "icons/72.png",
+      "80": "icons/80.png",
+      "92": "icons/92.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuy8jN8PWJWaltHOYmbqs10iWZHLBEyejmvd3Y6lGx2Ns9rKVOJyCo3gmZxkbjWRIbv9qE+MJgrVPRj19uc8poBMWnnKffCWFgEvT2kE2QkO68Xha28250rapCnCU7DsF6yRmZsrp8RiXC/OXgGHfPI3b6rrXbpBy2fvwh7pLrTKjdR/KRECShlDeWC2kCJkNUBUULu7OudzjqN7V7Ay2CiboAM1Cf/jsycWg4AKzbOSGkuVWkOeMMynEiYBS4++Y124n7OYoXS3LZ4C4p6dVjC617D4n2oyCDE61tPEhUY+Cq9JNtii6wS/3OnoPxCR5lvFzdws91MD9xCzDAFCylwIDAQAB",
+   "manifest_version": 3,
+   "name": "AIPRM for Claude",
+   "omnibox": {
+      "keyword": "claude"
+   },
+   "permissions": [ "activeTab", "contextMenus", "declarativeNetRequestWithHostAccess" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.3.3.23",
+   "web_accessible_resources": [ {
+      "matches": [ "https://claude.ai/*" ],
+      "resources": [ "config.js", "inject.js", "client.js", "utils.js", "feedback.js", "enums.js", "messages.js", "style.css", "AIPRM-quad-300x300-white-transparent.png", "rxn.js", "list.js", "quota.js", "readability.js", "multiselect-dropdown.js", "prompt-builder.js", "version.js", "referrals.js", "onboarding.js", "prompt-panel.js", "prompt-send-quota.js", "export.js" ],
+      "use_dynamic_url": false
+   } ]
+}
